@@ -1,18 +1,21 @@
 import java.util.Random;
 
 public class EmployeeWageComputation {
-    public static void display(){
+    public static void display() {
         System.out.println("Welcome to Employee Wage Computation Program");
     }
 
-    public static void employeeCheck(int wagePerHour, int hoursWorked){
+    public static void employeeCheck(int wagePerHour, int fullTimeHours, int partTimeHours) {
         Random random = new Random();
         int attendance = random.nextInt(2);
         if (attendance == 1) {
             System.out.println("Employee is Present");
 
-            int dailyWage = wagePerHour * hoursWorked;
-            System.out.println("Employee's Daily Wage: " + dailyWage);
+            int fullTimeWage = wagePerHour * fullTimeHours;
+            System.out.println("Full-Time Employee's Daily Wage: " + fullTimeWage);
+
+            int partTimeWage = wagePerHour * partTimeHours;
+            System.out.println("Part-Time Employee's Daily Wage: " + partTimeWage);
         } else {
             System.out.println("Employee is Absent");
         }
@@ -22,8 +25,9 @@ public class EmployeeWageComputation {
         display();
 
         int wagePerHour = 20;
-        int hoursWorked = 8;
+        int fullTimeHours = 8;
+        int partTimeHours = 4;
 
-        employeeCheck(wagePerHour, hoursWorked);
+        employeeCheck(wagePerHour, fullTimeHours, partTimeHours);
     }
 }
