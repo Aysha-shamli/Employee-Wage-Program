@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class EmployeeWageComputation {
     public static void display() {
@@ -11,11 +12,24 @@ public class EmployeeWageComputation {
         if (attendance == 1) {
             System.out.println("Employee is Present");
 
-            int fullTimeWage = wagePerHour * fullTimeHours;
-            System.out.println("Full-Time Employee's Daily Wage: " + fullTimeWage);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter 1 for Full-Time Employee ");
+            System.out.print("Enter 2 for Part-Time Employee ");
+            int input = scanner.nextInt();
+            int dailyWage;
 
-            int partTimeWage = wagePerHour * partTimeHours;
-            System.out.println("Part-Time Employee's Daily Wage: " + partTimeWage);
+            switch (input) {
+                case 1:
+                    dailyWage = wagePerHour * fullTimeHours;
+                    System.out.println("Full-Time Employee's Daily Wage: " + dailyWage);
+                    break;
+                case 2:
+                    dailyWage = wagePerHour * partTimeHours;
+                    System.out.println("Part-Time Employee's Daily Wage: " + dailyWage);
+                    break;
+                default:
+                    System.out.println("Invalid Employee Type");
+            }
         } else {
             System.out.println("Employee is Absent");
         }
